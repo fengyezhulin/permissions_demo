@@ -1,9 +1,9 @@
-# MPermissions
+# permissions_demo
 
 基于Annotation Processor的简单易用的处理Android M运行时权限的库。
 
-部分代码来自[PermissionGen](https://github.com/hongyangAndroid/PermissionGen)，
-主要是将其基于运行时注解的实现修改为Annotation Processor的方式，即编译时注解。
+代码是在[MPermission]上做的修改(git@github.com:hongyangAndroid/MPermissions.git)，
+主要是将授权失败的逻辑进行统一
 
 ## 引入
 
@@ -58,7 +58,7 @@ if (!MPermissions.shouldShowRequestPermissionRationale(MainActivity.this, Manife
 
 如果需要解释，会自动执行使用`@ShowRequestPermissionRationale`注解的方法。
 
-授权成功以及失败调用的分支方法通过注解`@PermissionGrant`和`@PermissionDenied`进行标识，详细参考下面的例子或者sample。
+授权成功调用的分支方法通过注解`@PermissionGrant`详细参考下面的例子或者sample。
 
 ## 例子
 
@@ -102,11 +102,6 @@ public class MainActivity extends AppCompatActivity
 	    Toast.makeText(this, "GRANT ACCESS SDCARD!", Toast.LENGTH_SHORT).show();
 	}
 
-	@PermissionDenied(REQUECT_CODE_SDCARD)
-	public void requestSdcardFailed()
-	{
-	    Toast.makeText(this, "DENY ACCESS SDCARD!", Toast.LENGTH_SHORT).show();
-	}
 }
 ```
 
@@ -141,12 +136,6 @@ public class TestFragment extends Fragment
     public void requestContactSuccess()
     {
         Toast.makeText(getActivity(), "GRANT ACCESS CONTACTS!", Toast.LENGTH_SHORT).show();
-    }
-
-    @PermissionDenied(4)
-    public void requestContactFailed()
-    {
-        Toast.makeText(getActivity(), "DENY ACCESS CONTACTS!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
