@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'bintray-release'
+
 
 android {
     compileSdkVersion 23
@@ -25,35 +25,3 @@ dependencies {
     compile project(':permission-annotation')
 }
 
-
-
-// javadoc tasks
-android.libraryVariants.all { variant ->
-    task("javadoc${variant.name.capitalize()}", type: Javadoc) {
-        description "Generates Javadoc for $variant.name."
-        group 'Docs'
-        source = variant.javaCompile.source
-        source "../permission-annotation/src/main/java"
-
-        exclude '**/BuildConfig.java'
-        exclude '**/R.java'
-    }
-}
-
-
-publish {
-    artifactId = 'mpermission-api'
-    userOrg = rootProject.userOrg
-    groupId = rootProject.groupId
-    uploadName = rootProject.uploadName
-    publishVersion = rootProject.publishVersion
-    description = rootProject.description
-    website = rootProject.website
-    licences = rootProject.licences
-}
-
-task copyJar(type: Copy) {
-    from('build/libs/permission-lib.jar')
-    into('../output/')
-    rename ('permission-lib.jar', 'mpermissions.jar')
-}
