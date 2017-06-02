@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="permission-annotation">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/permission-sample/libs/permission-annotation.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

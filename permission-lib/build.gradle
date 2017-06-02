@@ -25,3 +25,11 @@ dependencies {
     compile project(':permission-annotation')
 }
 
+task copyAAR(type: Copy) {
+    from 'build/outputs/aar/permission-lib-release.aar'
+    into '../permission-sample/libs'
+}
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn(copyAAR)
+}
+

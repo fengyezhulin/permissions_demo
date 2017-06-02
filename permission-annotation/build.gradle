@@ -1,4 +1,10 @@
 apply plugin: 'java'
 
-
+sourceCompatibility = JavaVersion.VERSION_1_7
+targetCompatibility = JavaVersion.VERSION_1_7
+task exportJar(type: Copy) {
+    from('build/libs/')
+    into('../permission-sample/libs/')
+}
+exportJar.dependsOn(build)
 

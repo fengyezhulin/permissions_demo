@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="permission-lib-release-">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/799a7e09a71c3f2cf4ca4ebb926347fd05a0798c/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/799a7e09a71c3f2cf4ca4ebb926347fd05a0798c/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
